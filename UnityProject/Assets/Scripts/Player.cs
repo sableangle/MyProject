@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         // 跳的邏輯 跟 跳的條件
-        if (isGrounded && Input.GetKeyDown(KeyCode.Space))
+        if (isGrounded && (Input.GetKeyDown(KeyCode.Space) || ArduinoSerialPOC.GetButtonDown("JUMP")) )
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             animator.SetTrigger("Jump");
